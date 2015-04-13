@@ -14,6 +14,7 @@ set noerrorbells        " Disable beeps
 set scrolloff=5         " Keep 5 lines above or below cursor when scrolling
 set sidescroll=1        " Keep lines around cursor for horizontal scrolling
 set sidescrolloff=10    " Set horizontal scroll offset to 10
+set title               " Change terminal title to filename
 
 " Spaces and  Tabs for Python
 set tabstop=4           " Make tabs 4 chars wide
@@ -23,6 +24,9 @@ set smarttab            " Use shiftwidth setting when at beginning of line
 set expandtab           " Insert spaces instead of /t
 set softtabstop=4       " Make bs delete 4 characters (i.e. removes a tab)
 set backspace=indent,eol,start  " Allow normal backspace behavior in insert mode
+
+" Git Settings
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Pathogen load
 filetype off
@@ -35,6 +39,8 @@ syntax on
 
 " Pymode Settings
 let g:pymode=0
+" let g:pymode_lint_checkers=['pylint', 'pyflakes', 'mccabe']
+let g:pymode_debug=1
 let g:pymode_rope=0
 let g:pymode_trim_whitespaces=0
 
@@ -59,5 +65,4 @@ let mapleader="\<Space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader><Leader> V
-
 map q: :q
