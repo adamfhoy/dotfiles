@@ -26,17 +26,7 @@ export HISTCONTROL=ignoredups
 # ------------------------------------------------------------
 
 # export PATH=/utils/bin:$PATH
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/utils/bin
-export PATH=$PATH:/software/lib/common
-
-export SCHRODINGER_LIB='/software/lib'
-export SCHRODINGER='/scr/hoy/build/master'
-export SCHRODINGER_SRC='/scr/hoy/source'
-export BUILD_LOC='/scr/hoy/build/'
-export CONFIG_GUI='/scr/hoy/build/config_gui_build/'
-
-export VENV='/home/hoy/.virtualenvs/venv/'
+export DOTFILES="/home/adamfhoy/dotfiles/dotfiles"
 
 # ------------------------------------------------------------
 # Aliases
@@ -53,8 +43,7 @@ alias larger='printf "\e[8;70;100;t"'
 alias smaller='printf "\e[8;35;100;t"'
 # alias larger="resize -s 70 100"
 # alias smaller="resize -s 35 100"
-alias review-board="rbt post -o --target-people='toh'"
-alias venv="source $VENV/bin/activate" 
+alias venv="source $VENV/bin/activate"
 
 setxkbmap -option ctrl:nocaps
 
