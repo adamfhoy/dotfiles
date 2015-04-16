@@ -8,7 +8,11 @@ if [ -f /etc/bashrc ]; then
       . /etc/bashrc   # --> Read /etc/bashrc, if present.
 fi
 
-PS1="[\h\[\033[33m\]\$(git branch 2>/dev/null | grep '\*' | sed -e 's/../ /')\[\033[0m\] \W]\\$ "
+# ------------------------------------------------------------
+# Prompt format
+# ------------------------------------------------------------
+
+PS1="[\u@\h\[\033[33m\]\$(git branch 2>/dev/null | grep '\*' | sed -e 's/../ /')\[\033[0m\] \W]\\$ "
 
 # ------------------------------------------------------------
 # History settings
@@ -33,8 +37,6 @@ export DOTFILES="/home/adamfhoy/dotfiles/dotfiles"
 # ------------------------------------------------------------
 
 alias xterm='xterm -geometry 100x35'
-alias gochroot="sudo chroot /scr/hoy/chroot su -l hoy"
-alias buildinger=$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh
 alias ex=exit
 alias qqq="gnome-terminal --geometry=100x70"
 alias notes="gnome-terminal --working-directory=/home/hoy/notes --geometry=100x35+2200+100"
@@ -43,13 +45,6 @@ alias larger='printf "\e[8;70;100;t"'
 alias smaller='printf "\e[8;35;100;t"'
 # alias larger="resize -s 70 100"
 # alias smaller="resize -s 35 100"
-alias venv="source $VENV/bin/activate"
 
 setxkbmap -option ctrl:nocaps
-
-designer() {
-    source $SCHRODINGER_SRC/mmshare/build_env
-    /software/lib/Linux-x86_64/qt-4.8.5/bin/designer
-}
-
 
