@@ -1,11 +1,15 @@
 set nocompatible
 
+" Pathogen load
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
 " UI Settings
 syntax enable           " Enable syntax processing
 set nowrap              " Show lines in a single line without wrapping
 set showmatch           " Show closing parens and brackets
-" set number            " Enable line numbers on left side
-" colorscheme
+set number            " Enable line numbers on left side
 set nocursorline        " Cursorline underlines the current line
 set showcmd             " Show size of block selected
 set ruler               " Show line and column number
@@ -15,6 +19,12 @@ set scrolloff=5         " Keep 5 lines above or below cursor when scrolling
 set sidescroll=1        " Keep lines around cursor for horizontal scrolling
 set sidescrolloff=10    " Set horizontal scroll offset to 10
 set title               " Change terminal title to filename
+
+" colorscheme
+" Currently configured using base16-vim.git
+" https://github.com/chriskempson/base16
+set background=dark
+colorscheme base16-default-dark
 
 " Spaces and  Tabs for Python
 set tabstop=4           " Make tabs 4 chars wide
@@ -28,18 +38,8 @@ set backspace=indent,eol,start  " Allow normal backspace behavior in insert mode
 " Git Settings
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
-" Pathogen load
-filetype off
-
-call pathogen#infect()
-call pathogen#helptags()
-
-filetype plugin indent on
-syntax on
-
 " Pymode Settings
 let g:pymode=0
-" let g:pymode_lint_checkers=['pylint', 'pyflakes', 'mccabe']
 let g:pymode_debug=1
 let g:pymode_rope=0
 let g:pymode_trim_whitespaces=0
