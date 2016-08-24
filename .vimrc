@@ -19,6 +19,7 @@ set scrolloff=5         " Keep 5 lines above or below cursor when scrolling
 set sidescroll=1        " Keep lines around cursor for horizontal scrolling
 set sidescrolloff=10    " Set horizontal scroll offset to 10
 set title               " Change terminal title to filename
+set mouse=a             " Enable mouse use in all modes, for tmux
 
 " colorscheme
 " Currently configured using base16-vim.git
@@ -66,3 +67,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader><Leader> V
 map q: :q
+
+" Set up global copy and paste
+map <Leader>y :w! /tmp/vitmp<CR>
+map <Leader>p :r! cat /tmp/vitmp<CR>
