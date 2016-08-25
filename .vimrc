@@ -71,3 +71,6 @@ map q: :q
 " Set up global copy and paste
 map <Leader>y :w! /tmp/vitmp<CR>
 map <Leader>p :r! cat /tmp/vitmp<CR>
+
+" Search and replace text under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
