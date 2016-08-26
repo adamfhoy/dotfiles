@@ -1,3 +1,8 @@
+" ======================================================= 
+" General Settings
+" ======================================================= 
+
+" Use Vim defaults
 set nocompatible
 
 " Pathogen load
@@ -34,20 +39,35 @@ set expandtab           " Insert spaces instead of /t
 set softtabstop=4       " Make bs delete 4 characters (i.e. removes a tab)
 set backspace=indent,eol,start  " Allow normal backspace behavior in insert mode
 
-" Git Settings
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
-" Pymode Settings
-let g:pymode=0
-let g:pymode_debug=1
-let g:pymode_rope=0
-let g:pymode_trim_whitespaces=0
-
 " Search settings
 set ignorecase          " Case insensitive search
 set smartcase           " Override ignore case if search contains upper case
 set hlsearch            " Highlight places where the pattern is found
 set incsearch           " Show search result as characters are input
+
+" When editing file, make screen display the name of the file being edited
+" Enabled by default
+let g:SetTitleEnabled = 1
+function! SetTitle()
+  if exists("g:SetTitleEnabled") && g:SetTitleEnabled && $TERM =~ "^screen"
+    let l:title = 'vi: '.expand('%:t')
+
+    if (l:title != 'vi: __Tag_List__')
+      let l:truncTitle = strpart(l:title, 0, 15)
+      silent exe '!echo -e -n "\033k' . l:truncTitle . '\033\\"'
+    endif
+  endif
+endfunction
+
+" Run it every time the buffer is changed
+autocmd BufEnter,BufFilePost * call SetTitle()
+
+" Jump to same line when reopening file
+autocmd BufReadPost * if line ("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
+
+" Git Settings
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Tmux settings
 " allow cursor change in tmux mode
@@ -72,3 +92,11 @@ map <Leader>p :r! cat /tmp/vitmp<CR>
 
 " Search and replace text under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" Remap F5 to strip trailing whitespace
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=s<Bar><CR>
+
+" ======================================================= 
+" Language Specific Settings
+" ======================================================= 
+
