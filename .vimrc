@@ -22,10 +22,8 @@ set title               " Change terminal title to filename
 set mouse=a             " Enable mouse use in all modes, for tmux
 
 " colorscheme
-" Currently configured using base16-vim.git
-" https://github.com/chriskempson/base16
 set background=dark
-colorscheme base16-default-dark
+colorscheme darkblue
 
 " Spaces and  Tabs for Python
 set tabstop=4           " Make tabs 4 chars wide
