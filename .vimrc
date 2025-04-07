@@ -5,8 +5,6 @@
 " Use Vim defaults
 set nocompatible
 
-" Pathogen load
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -14,7 +12,7 @@ filetype plugin indent on
 syntax enable           " Enable syntax processing
 set nowrap              " Show lines in a single line without wrapping
 set showmatch           " Show closing parens and brackets
-set number            " Enable line numbers on left side
+set number              " Enable line numbers on left side
 set nocursorline        " Cursorline underlines the current line
 set showcmd             " Show size of block selected
 set ruler               " Show line and column number
@@ -24,7 +22,10 @@ set scrolloff=5         " Keep 5 lines above or below cursor when scrolling
 set sidescroll=1        " Keep lines around cursor for horizontal scrolling
 set sidescrolloff=10    " Set horizontal scroll offset to 10
 set title               " Change terminal title to filename
+set titleold=           " Restore old terminal name after exiting
 set mouse=a             " Enable mouse use in all modes, for tmux
+set visualbell
+set t_vb=
 
 " colorscheme
 set background=dark
