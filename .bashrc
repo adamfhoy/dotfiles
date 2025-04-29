@@ -13,7 +13,13 @@ fi
 # Prompt format
 # ----------------------------------------------------
 
-PS1="[\u@\h\[\033[33m\]\$(git branch 2>/dev/null | grep '\*' | sed -e 's/../ /')\[\033[0m\] \W]\\$ "
+parse_git_branch() {
+    if [ -n "$(git branch --show-current 2> /dev/null)" ]; then
+        echo "($(git branch --show-current)) "
+    fi
+}
+
+PS1="[\[\e[0;32m\]\u@\h\[\e[1;33m\] \$(parse_git_branch)\[\e[1;34m\]\W\[\e[0m\]]$ "
 
 # ----------------------------------------------------
 # History settings
